@@ -1,0 +1,85 @@
+﻿@{
+	ViewBag.Title = "Sharpitter # Home";
+}
+
+<ul class="list-group">
+    <li class="list-group-item active postar">
+    	<form action="Home/Sharpp" method="post">
+
+	        <div class="postar-form">
+	            <img src="@ViewBag.Usuario.Avatar">
+	            <textarea class="postar-texto" name="Texto" placeholder="O que está acontecendo?"></textarea>
+	        </div>
+	        <div class="postar-button">
+	            <input type="submit" value="postar" class="btn btn-primary"/>
+	        </div>
+
+        </form>
+
+    </li>
+
+    @if (ViewBag.Sharpps.Count > 0){
+
+        foreach(var sh in ViewBag.Sharpps) {
+
+		    <li class="list-group-item sharpp-item">
+		        <img src="@sh.Usuario.Avatar" class="sharpp-avatar">
+		        <div class="sharpp-dados">
+		            <strong class="sharpp-nome">@sh.Usuario.Nome</strong> <span class="sharpp-apelido">@@@sh.Autor</span> <span class="sharpp-tempo">@sh.TempoDecorrido()</span>
+		            <p class="sharpp-texto">
+		                @sh.Texto
+		            </p>
+		        </div>
+		    </li>
+
+	    }
+
+    } else {
+
+    	<li class="list-group-item">
+    		<em>Nenhum Sharpp encontrado.</em>
+    	</li>
+
+    }
+
+    <!--li class="list-group-item sharpp-item">
+        <img src="http://www.avatarpro.biz/avatar?s=100" class="sharpp-avatar">
+        <div class="sharpp-dados">
+            <strong class="sharpp-nome">Walter Gandarella</strong> <span class="sharpp-apelido">@@wgbn</span> <span class="sharpp-tempo">- 2h</span>
+            <p class="sharpp-texto">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum deserunt eaque ipsa laboriosam quasi recusandae reiciendis temporibus, voluptatem? Accusamus aliquid commodi consequatur doloremque expedita nisi quidem rerum sapiente ullam vero!
+            </p>
+        </div>
+    </li>
+    <li class="list-group-item sharpp-item">
+        <img src="http://www.avatarpro.biz/avatar?s=100" class="sharpp-avatar">
+        <div class="sharpp-dados">
+            <strong class="sharpp-nome">Walter Gandarella</strong> <span class="sharpp-apelido">@@wgbn</span> <span class="sharpp-tempo">- 2h</span>
+            <p class="sharpp-texto">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum deserunt eaque ipsa laboriosam quasi recusandae reiciendis temporibus, voluptatem? Accusamus aliquid commodi consequatur doloremque expedita nisi quidem rerum sapiente ullam vero!
+            </p>
+        </div>
+    </li-->
+</ul>
+
+<script>
+    $(document).ready(function(){
+
+    	$('.postar-texto').focus(function(){
+    		$()
+    	});
+
+        $('.postar-texto').keyup(function(){
+            limita($(this));
+        });
+
+        function limita(campo){
+            var tamanho = campo.val().length();
+            var tex = campo.val();
+            if (tamanho >= 160) {
+                campo.val(tex.substring(0,160));
+            }
+            return true;
+        }
+    });
+</script>

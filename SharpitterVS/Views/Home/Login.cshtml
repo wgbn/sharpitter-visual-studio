@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+	@if(ViewBag.MsgStatus != null){
+		<h1>@ViewBag.MsgStatus</h1>
+	}
+
+	<form action="/Home/Login" method="post">
+		<label for="username">Usuário</label>
+		<input type="text" name="Username" placeholder="seu nome de usuário"/>
+
+		<label for="senha">Senha</label>
+		<input type="password" name="Senha" placeholder="sua senha"/>
+
+		<input type="submit" value="Entrar"/>
+	</form>
+
+	<a href="/Home/CriarUsuario">Ou crie seu usuário agora</a>
+</body>
+</html>
+

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>@ViewBag.Title</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/bootflat/css/bootflat.min.css" rel="stylesheet">
+    <link href="Content/styles/style.min.css" rel="stylesheet">
+
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Content/bootflat/js/icheck.min.js"></script>
+    <script src="Content/bootflat/js/jquery.fs.selecter.min.js"></script>
+    <script src="Content/bootflat/js/jquery.fs.stepper.min.js"></script>
+
+    <script src="Scripts/sharpitter.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top barra-topo" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">#Sharpitter</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right" style="margin-left: 1em;">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@ViewBag.Usuario.Nome <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Opções</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/Home/LogOut">Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-search search-only">
+                    <i class="search-icon glyphicon glyphicon-search"></i>
+                    <input type="text" class="form-control search-query">
+                </div>
+            </form>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="site">
+
+    <div class="perfil">
+        <div class="jumbotron">
+            <div class="jumbotron-photo"><img src="http://lorempixel.com/400/200/city" /></div>
+            <div class="jumbotron-contents perfil-contents">
+                <img src="@ViewBag.Usuario.Avatar" class="perfil-avatar"> <!-- http://www.avatarpro.biz/avatar?s=500 -->
+                <div class="dados">
+                    <strong>@ViewBag.Usuario.Nome</strong>
+                    <span>@@@ViewBag.Usuario.Username</span>
+                </div>
+
+                <!--
+                <div class="metricas">
+                    <div class="metrica">
+                        <strong>Sharpps</strong>
+                        <span>100</span>
+                    </div>
+                    <div class="metrica">
+                        <strong>Seguindo</strong>
+                        <span>100</span>
+                    </div>
+                    <div class="metrica">
+                        <strong>Seguidores</strong>
+                        <span>100</span>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+
+    <div class="sharpitters">
+        @RenderBody()
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+@import "mixins";
+
+body {
+    background-color: #e7e7e7;
+}
+
+.barra-topo {
+    background-color: #fff; //#5da4f4; //#3BAFDA;
+    border-radius: 0;
+    @include box-shadow(0, 2px, 3px, rgba(0,0,0,.2));
+
+    & a {
+        color: #1F4788;
+    }
+}
+
+.site {
+    width: 100%;
+    max-width: 918px;
+    margin: 65px auto 1em;
+
+    @extend %flex-center-top;
+
+    & .perfil {
+        width: 288px;
+        margin-right: .7em;
+        @include flex-grow(0);
+
+        & .perfil-contents {
+            position: relative;
+            padding: .3em;
+
+            & .perfil-avatar {
+                position: absolute;
+                left: 20px;
+                top: -36px;
+                width: 72px;
+                height: 72px;
+                border: 3px solid #fff;
+
+                @include border-radius(4px);
+
+            }
+
+            & .dados {
+                padding-left: 96px;
+
+                & strong, & span {
+                    display: block;
+                }
+                & strong {
+                    font-size: 1.2em;
+                }
+                & span {
+                    font-size: .9em;
+                }
+            }
+
+            & .metricas {
+                padding: .5em;
+                @extend %flex-center-center;
+
+                & .metrica {
+                    width: 33.3%;
+
+                    & .strong, & span {
+                        display: block;
+                    }
+                    & strong {
+                        font: {
+                            weight: normal;
+                            size: .9em;
+                        }
+                        text-transform: uppercase;
+                        color: #999;
+                    }
+                    & span {
+                        font-size: 1.2em;
+                        color: #317589;
+                    }
+                }
+            }
+        }
+    }
+
+    & .sharpitters {
+        @include flex-grow(1);
+        max-width: 585px;
+
+        & .postar {
+            background-color: #e1e8ed;
+            border-color: #d6dde2;
+            color: #666;
+            padding: 1em;
+
+            & .postar-form {
+                @extend %flex-center-top;
+                @include flex-wrap(no-wrap);
+
+                & img {
+                    width: 32px;
+                    height: 32px;
+                    @include border-radius(2px);
+                }
+                & textarea {
+                    @include flex-grow(1);
+                    width: 98%;
+                    border: 1px solid #bdc4c9;
+                    border-radius: 3px;
+                    box-shadow: none;
+                    font-size: 14px;
+                    height: 32px;
+                    margin-left: 2%;
+                    outline: none;
+                    padding: .4em;
+                    overflow: hidden;
+
+                    -webkit-transition: height .3s;
+                    -moz-transition: height .3s;
+                    -ms-transition: height .3s;
+                    -o-transition: height .3s;
+                    transition: height .3s;
+                }
+            }
+            & .postar-button {
+                display: none;
+                padding-top: .5em;
+                text-align: right;
+            }
+        }
+        & .postar-hover {
+            & .postar-form {
+                & textarea {
+                    height: 70px;
+                    //overflow: auto;
+                }
+            }
+            & .postar-button {
+                display: block;
+            }
+        }
+
+        & .sharpp-item {
+            @extend %flex-center-top;
+
+            & .sharpp-avatar {
+                width: 48px;
+                height: 48px;
+                margin-right: .5em;
+                display: inline-block;
+
+                @include border-radius(4px);
+            }
+            & .sharpp-dados {
+                width: 90%;
+                & .sharpp-nome {
+                    display: inline-block;
+                    margin-right: .4em;
+                }
+                & .sharpp-apelido, & .sharpp-tempo {
+                    color: #666;
+                    font-size: .9em;
+                    font-style: italic;
+                }
+                & .sharpp-texto {
+                    padding-top: .2em;
+                    font-size: .95em;
+                }
+            }
+        }
+    }
+}
